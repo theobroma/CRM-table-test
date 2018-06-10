@@ -11,7 +11,7 @@ export class TableRow extends React.Component<any, any> {
   handleDoubleClick = () => {
     //this.props.handleDoubleClick();
     this.setState({ editing: true });
-    console.log('HandleDbClick from TableRow');
+    //console.log('HandleDbClick from TableRow');
   };
 
   handleSave = (id: any, cellType: any, text: any) => {
@@ -21,7 +21,7 @@ export class TableRow extends React.Component<any, any> {
 
   handleOnBlur = () => {
     this.setState({ editing: false });
-    console.log('handleOnBlur from TableRow');
+    //console.log('handleOnBlur from TableRow');
   };
   //FIXME: enhance DRY
   render() {

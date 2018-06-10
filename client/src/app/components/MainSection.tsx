@@ -6,60 +6,27 @@ import { connect } from 'react-redux';
 import mockClients from '../helpers/mockclients';
 import TableRow from './TableRow';
 
-interface MainSectionProps {
-  //todoarr: Todo[];
-}
-interface MainSectionState {}
-
 //replace todoarr with state from redux or reverse
 export default class MainSection extends React.Component<any, any> {
-  // _filterClients = (client: any) =>
-  //   this.props.filter === 'SHOW_ALL' ||
-  //   (this.props.filter === 'SHOW_ACTIVE' && !todo.completed) ||
-  //   (this.props.filter === 'SHOW_COMPLETED' && todo.completed);
-  // //TODO: implement toggle-all
-  // // <input className="toggle-all" type="checkbox" checked={completedCount === todos.length} />
-  // _renderToggleAll(completedCount: any) {
-  //   const { todos } = this.props;
-  //   if (todos.length) {
-  //     return <input className="toggle-all" type="checkbox" />;
-  //   }
-  //   return null;
-  // }
-
-  // renderTodos() {
-  //   const { todos } = this.props;
-  //   //mock with todoarr if needed
-  //   return todos
-  //     .filter(this._filterTodos)
-  //     .map((todo: any) => (
-  //       <TodoItem
-  //         key={todo._id}
-  //         todo={todo}
-  //         addTodo={this.props.addTodo}
-  //         removeTodo={this.props.removeTodo}
-  //         toggleTodo={this.props.toggleTodo}
-  //         editTodo={this.props.editTodo}
-  //       />
-  //     ));
-  // }
-
-  // state = {
-  //   editing: false,
-  //   editingID: '123123'
-  // };
-
-  // handleDoubleClick = (id: any) => {
-  //   this.setState({ editing: true, editingID: id });
-  //   console.log('HandleDbClick from MainSection');
-  // };
+  _filterClients = (client: any) => {
+    //const activeFilters = ['wood', 'silver'];
+    const activeFilters: string[] = [];
+    this.props.filters.forEach(function(filter: any) {
+      if (filter.active) {
+        activeFilters.push(filter.name);
+      }
+    });
+    const check = activeFilters.indexOf(client.discountType) > -1;
+    return check ? true : false;
+  };
 
   renderClients() {
     const { clients } = this.props;
-    //mock with todoarr if needed
-    return clients.map((client: any) => (
-      <TableRow key={client._id} client={client} editCell={this.props.editCell} />
-    ));
+    return clients
+      .filter(this._filterClients)
+      .map((client: any) => (
+        <TableRow key={client._id} client={client} editCell={this.props.editCell} />
+      ));
   }
 
   render() {
@@ -69,10 +36,10 @@ export default class MainSection extends React.Component<any, any> {
         <div className="Table">
           <div className="Table-row Table-header">
             <div className="Table-row-item">Клиент</div>
-            <div className="Table-row-item">Скидка</div>
+            <div className="Table-row-item">Скидка Тип</div>
             <div className="Table-row-item">Потрачено</div>
             <div className="Table-row-item">СК.Сумма</div>
-            <div className="Table-row-item">Скидка</div>
+            <div className="Table-row-item">Скидка Процент</div>
           </div>
           <div className="Table-body">{this.renderClients()}</div>
         </div>

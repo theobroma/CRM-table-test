@@ -15,6 +15,6 @@ export const toggleFilter = (filter: any) => {
 };
 
 export const editCell = (id: string, cellType: string, text: string) => {
-  console.log(text);
+  //console.log(text);
   return { type: EDIT_CELL_REQUEST, payload: { id, cellType, text } };
 };

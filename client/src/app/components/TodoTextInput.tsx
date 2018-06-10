@@ -63,7 +63,7 @@ class TodoTextInput extends React.Component<any, any> {
   }
 
   handleBlur(e: any) {
-    console.log('handleBlur');
+    //console.log('handleBlur');
     // if (!this.props.newTodo) {
     //   this.props.onSave(e.target.value);
     // }

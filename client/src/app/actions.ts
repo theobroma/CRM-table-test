@@ -14,7 +14,7 @@ export const toggleFilter = (filter: any) => {
   };
 };
 
-export const editCell = (id: string, text: string) => {
-  //console.log(completed);
-  return { type: EDIT_CELL_REQUEST, payload: { id, text } };
+export const editCell = (id: string, cellType: string, text: string) => {
+  console.log(text);
+  return { type: EDIT_CELL_REQUEST, payload: { id, cellType, text } };
 };

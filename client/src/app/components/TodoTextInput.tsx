@@ -48,16 +48,17 @@ class TodoTextInput extends React.Component<any, any> {
 
   handleSubmit = (e: any) => {
     const text = e.target.value.trim();
+    //console.log(text);
     if (e.which === 13) {
-      this.props.onSave(text);
-      if (this.props.newTodo) {
-        this.setState({ text: '' });
-      }
+      this.props.onSave(this.props.client._id, this.props.cellType, 'mytext');
+      // if (this.props.newTodo) {
+      //   this.setState({ text: '' });
+      // }
     }
   };
 
   handleChange(e: any) {
-    console.log('handleChange');
+    //console.log('handleChange');
     this.setState({ text: e.target.value });
   }
 

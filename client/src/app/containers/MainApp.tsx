@@ -65,7 +65,10 @@ function mapStateToProps(state: any) {
 
 const mapDispatchToProps = (dispatch: any) => ({
   toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
-  editCell: (id: string, text: string) => dispatch(editCell(id, text))
+  editCell: (id: string, cellType: string, text: string) => {
+    //console.log(cellType);
+    return dispatch(editCell(id, cellType, text));
+  }
 });
 
 export default connect(

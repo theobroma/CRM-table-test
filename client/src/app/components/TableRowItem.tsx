@@ -8,6 +8,10 @@ export class TableRowItem extends React.Component<any, any> {
     editing: true
   };
 
+  handleSave = (id: any, text: any) => {
+    this.props.editCell(id, text);
+    this.setState({ editing: false });
+  };
   // handleDoubleClick = (id: any) => {
   //   this.props.handleDoubleClick(id);
   //   this.setState({ editing: true });
@@ -26,7 +30,14 @@ export class TableRowItem extends React.Component<any, any> {
   render() {
     let element;
     if (this.state.editing) {
-      element = <TodoTextInput text={this.props.text} />;
+      element = (
+        <div className="Table-row-item">
+          <TodoTextInput
+            text={this.props.text}
+            onSave={(id: any, text: any) => this.handleSave(id, text)}
+          />
+        </div>
+      );
     } else {
       element = <div className="Table-row-item">{this.props.text}</div>;
     }

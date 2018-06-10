@@ -7,7 +7,7 @@ class TodoTextInput extends React.Component<any, any> {
     text: '',
     placeholder: 'What needs to be done?',
     editing: true,
-    newTodo: false
+    newTodo: true
   };
 
   state = {
@@ -62,6 +62,7 @@ class TodoTextInput extends React.Component<any, any> {
   }
 
   handleBlur(e: any) {
+    console.log('handleBlur');
     // if (!this.props.newTodo) {
     //   this.props.onSave(e.target.value);
     // }

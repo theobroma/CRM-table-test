@@ -58,7 +58,12 @@ export default class MainSection extends React.Component<any, any> {
     const { clients } = this.props;
     //mock with todoarr if needed
     return clients.map((client: any) => (
-      <TableRow key={client._id} client={client} handleDoubleClick={this.handleDoubleClick} />
+      <TableRow
+        key={client._id}
+        client={client}
+        handleDoubleClick={this.handleDoubleClick}
+        editCell={this.props.editCell}
+      />
     ));
   }
 

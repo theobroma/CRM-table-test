@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
 //mock todos reducer with data
 import mockClients from './helpers/mockclients';
-import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST } from './actions';
+import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST } from './actions';
 
 const filtersInitialState = {
   data: [
@@ -38,6 +38,10 @@ const clientsInitialState = {
 function clients(state = clientsInitialState, action: any) {
   switch (action.type) {
     case FETCH_CLIENTS_REQUEST:
+      return {
+        ...state
+      };
+    case EDIT_CELL_REQUEST:
       return {
         ...state
       };

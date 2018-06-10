@@ -9,7 +9,7 @@ import { Todo, IState } from '../model';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 
-import { toggleFilter } from '../actions';
+import { toggleFilter, editCell } from '../actions';
 //import getTodos from '../api';
 //import { fetchTodos } from '../actions';
 interface AppProps {}
@@ -38,7 +38,11 @@ class MainApp extends React.Component<any, any> {
         <section className="content">
           <div className="columns">
             <main className="main">
-              <MainSection clients={clients} filters={this.props.filters} />
+              <MainSection
+                clients={clients}
+                filters={this.props.filters}
+                editCell={this.props.editCell}
+              />
             </main>
             <aside className="sidebar-first">Sidebar first: Fixed width</aside>
             <aside className="sidebar-second">Sidebar second: Fixed width</aside>
@@ -60,7 +64,8 @@ function mapStateToProps(state: any) {
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleFilter: (filter: string) => dispatch(toggleFilter(filter))
+  toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
+  editCell: (id: string, text: string) => dispatch(editCell(id, text))
 });
 
 export default connect(

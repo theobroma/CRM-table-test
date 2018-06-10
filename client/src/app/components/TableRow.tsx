@@ -27,11 +27,11 @@ export class TableRow extends React.Component<any, any> {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
     return (
       <div className={cx({ 'Table-row': true })} onDoubleClick={() => this.handleDoubleClick(_id)}>
-        <TableRowItem text={name} cellType="name" />
-        <TableRowItem text={discountType} cellType="discountType" />
-        <TableRowItem text={spentSum} cellType="spentSum" />
-        <TableRowItem text={22.33} cellType="discountSum" />
-        <TableRowItem text={discountProcent} cellType="discountProcent" />
+        <TableRowItem text={name} cellType="name" {...this.props} />
+        <TableRowItem text={discountType} cellType="discountType" {...this.props} />
+        <TableRowItem text={spentSum} cellType="spentSum" {...this.props} />
+        <TableRowItem text={22.33} cellType="discountSum" {...this.props} />
+        <TableRowItem text={discountProcent} cellType="discountProcent" {...this.props} />
       </div>
     );
   }

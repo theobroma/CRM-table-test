@@ -16,6 +16,9 @@
   // .Table-row
   &-row {
     width: 100%;
+    &:hover {
+      outline: solid 1px $c-pink;
+    }
     &:nth-of-type(even) {
       background-color: $dark-color;
     }
@@ -50,7 +53,10 @@
     }
   }
 }
-
+//disable for Table-header
+.Table-header.Table-row:hover {
+  outline: none;
+}
 // generate Flexbox grow-rate utility classes
 @for $i from 1 through 10 {
   .u-Flex-grow#{$i} {

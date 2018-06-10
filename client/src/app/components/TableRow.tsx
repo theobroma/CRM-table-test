@@ -10,7 +10,7 @@ export class TableRow extends React.Component<any, any> {
 
   handleDoubleClick = () => {
     //this.props.handleDoubleClick();
-    this.setState({ editing: true });
+   this.setState({ editing: true });
     console.log('HandleDbClick from TableRow');
   };
 
@@ -19,6 +19,10 @@ export class TableRow extends React.Component<any, any> {
     this.setState({ editing: false });
   };
 
+  handleOnBlur = () => {
+    this.setState({ editing: false });
+    console.log('handleOnBlur from TableRow');
+  };
   render() {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
     return (
@@ -34,6 +38,7 @@ export class TableRow extends React.Component<any, any> {
           cellType="name"
           rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -41,6 +46,7 @@ export class TableRow extends React.Component<any, any> {
           cellType="discountType"
           rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -48,6 +54,7 @@ export class TableRow extends React.Component<any, any> {
           cellType="spentSum"
           rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -55,6 +62,7 @@ export class TableRow extends React.Component<any, any> {
           cellType="discountSum"
           rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -62,6 +70,7 @@ export class TableRow extends React.Component<any, any> {
           cellType="discountProcent"
           rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
       </div>

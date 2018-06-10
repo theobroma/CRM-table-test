@@ -1,0 +1,66 @@
+.Table {
+  $c-grey: #282c37;
+  $c-grey-light: #f3f3f3;
+  $c-brown: #2c0515;
+  $light-color: #ffffff;
+  $dark-color: #b43b3b;
+  $md: 500px;
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  border: solid 1px rgba(106, 117, 131, 0.16);
+  font-size: 1rem;
+  margin: 0.5rem;
+  line-height: 1.5;
+
+  // .Table-header
+  &-header {
+    display: none;
+    font-weight: 700;
+    background-color: $dark-color;
+  }
+  // .Table-row
+  &-row {
+    width: 100%;
+    &:nth-of-type(even) {
+      background-color: $dark-color;
+    }
+    &:nth-of-type(odd) {
+      background-color: $light-color;
+    }
+    display: flex;
+    flex-flow: row nowrap;
+    &:nth-of-type(even) {
+      background-color: $light-color;
+    }
+    &:nth-of-type(odd) {
+    }
+    // .Table-row-item
+    &-item {
+      display: flex;
+      flex-flow: row nowrap;
+      flex-grow: 1;
+      flex-basis: 0;
+      padding: 0.5em;
+      word-break: break-word;
+      &:before {
+        content: attr(data-header);
+        width: 30%;
+        font-weight: 700;
+      }
+      border: solid 1px rgba(106, 117, 131, 0.16);
+      padding: 0.5em;
+      &:before {
+        content: none;
+      }
+    }
+  }
+}
+
+// generate Flexbox grow-rate utility classes
+@for $i from 1 through 10 {
+  .u-Flex-grow#{$i} {
+    flex-grow: i;
+  }
+}

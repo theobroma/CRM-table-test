@@ -56,14 +56,52 @@ export default class MainSection extends React.Component<any, any> {
     const { clients } = this.props;
     return (
       <section className="sheet-container">
-        <div className="table-header">
-          <div className="table-header-item">Клиент</div>
-          <div className="table-header-item">Скидка</div>
-          <div className="table-header-item">Потрачено</div>
-          <div className="table-header-item">СК.Сумма</div>
-          <div className="table-header-item">Скидка</div>
+        <div className="Table">
+          <div className="Table-row Table-header">
+            <div className="Table-row-item">Клиент</div>
+            <div className="Table-row-item">Скидка</div>
+            <div className="Table-row-item">Потрачено</div>
+            <div className="Table-row-item">СК.Сумма</div>
+            <div className="Table-row-item">Скидка</div>
+          </div>
+          <div className="Table-body">
+            {/* <div className="Table-row">
+              <div className="Table-row-item" data-header="Header1">
+                row1 col1
+              </div>
+              <div className="Table-row-item" data-header="Header2">
+                row1 col2
+              </div>
+              <div className="Table-row-item" data-header="Header3">
+                row1 col3
+              </div>
+              <div className="Table-row-item" data-header="Header4">
+                row1 col4
+              </div>
+              <div className="Table-row-item" data-header="Header4">
+                row1 col4
+              </div>
+            </div>
+            <div className="Table-row">
+              <div className="Table-row-item" data-header="Header1">
+                row2 col1
+              </div>
+              <div className="Table-row-item" data-header="Header2">
+                row2 col2
+              </div>
+              <div className="Table-row-item" data-header="Header3">
+                row2 col3
+              </div>
+              <div className="Table-row-item" data-header="Header4">
+                row2 col4
+              </div>
+              <div className="Table-row-item" data-header="Header4">
+                row1 col4
+              </div>
+            </div> */}
+            {this.renderClients()}
+          </div>
         </div>
-        <div className="table-body">{this.renderClients()}</div>
       </section>
     );
   }
@@ -80,4 +118,24 @@ export default class MainSection extends React.Component<any, any> {
 </div>
 <div className="table-body">{this.renderClients()}</div>
 </section> */
+}
+
+{
+  /* <div className="Table-row">
+  <div className="Table-row-item" data-header="Header1">
+    row2 col1
+  </div>
+  <div className="Table-row-item" data-header="Header2">
+    row2 col2
+  </div>
+  <div className="Table-row-item" data-header="Header3">
+    row2 col3
+  </div>
+  <div className="Table-row-item" data-header="Header4">
+    row2 col4
+  </div>
+  <div className="Table-row-item" data-header="Header4">
+    row1 col4
+  </div>
+</div> */
 }

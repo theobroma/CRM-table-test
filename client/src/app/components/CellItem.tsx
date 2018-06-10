@@ -28,15 +28,35 @@ export class TodoItem extends React.Component<any, any> {
     // const { _id, text, completed } = this.props.todo;
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
     return (
-      <div className="table-row">
-        <div className="table-cell">{name}</div>
-        <div className="table-cell">{discountType}</div>
-        <div className="table-cell">{spentSum}</div>
-        <div className="table-cell">22.33</div>
-        <div className="table-cell">{discountProcent}</div>
+      <div className="Table-row">
+        <div className="Table-row-item" data-header="Header1">
+          {name}
+        </div>
+        <div className="Table-row-item" data-header="Header2">
+          {discountType}
+        </div>
+        <div className="Table-row-item" data-header="Header3">
+          {spentSum}
+        </div>
+        <div className="Table-row-item" data-header="Header4">
+          22.33
+        </div>
+        <div className="Table-row-item" data-header="Header4">
+          {discountProcent}
+        </div>
       </div>
     );
   }
 }
 
 export default TodoItem;
+
+{
+  /* <div className="table-row">
+  <div className="table-cell">{name}</div>
+  <div className="table-cell">{discountType}</div>
+  <div className="table-cell">{spentSum}</div>
+  <div className="table-cell">22.33</div>
+  <div className="table-cell">{discountProcent}</div>
+</div> */
+}

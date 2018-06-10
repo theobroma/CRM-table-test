@@ -38,7 +38,7 @@ class MainApp extends React.Component<any, any> {
         <section className="content">
           <div className="columns">
             <main className="main">
-              <MainSection clients={clients} filter={this.props.currentFilter} />
+              <MainSection clients={clients} filters={this.props.filters} />
             </main>
             <aside className="sidebar-first">Sidebar first: Fixed width</aside>
             <aside className="sidebar-second">Sidebar second: Fixed width</aside>

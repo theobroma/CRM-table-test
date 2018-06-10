@@ -1,36 +1,29 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-interface TodoTextInputProps {
-  addTodo: (text: string) => void;
-  text?: string;
-  placeholder?: string;
-  editing?: boolean;
-  newTodo?: boolean;
-}
-interface TodoTextInputState {
-  text: string;
-}
 //class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextInputState>
 class TodoTextInput extends React.Component<any, any> {
   static defaultProps = {
     text: '',
     placeholder: 'What needs to be done?',
-    editing: false,
+    editing: true,
     newTodo: false
   };
 
   state = {
-    text: ''
+    //text: '123'
+    text: this.props.text
   };
-  //FIXME: no state update after receiving props
-  //https://github.com/reactjs/rfcs/issues/26
-  // componentWillReceiveProps(nextProps: any) {
-  //   this.setState({ text: nextProps.text });
-  // }
+  //https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
 
-  // componentDidUpdate(prevProps: any) {
-  //   console.log(prevProps);
+  // static getDerivedStateFromProps(nextProps: any, prevState: any) {
+  //   if (prevState.text !== nextProps.text) {
+  //     return {
+  //       text: nextProps.text
+  //     };
+  //   } else {
+  //     return null;
+  //   }
   // }
 
   // static getDerivedStateFromProps(nextProps: any, prevState: any) {
@@ -64,14 +57,14 @@ class TodoTextInput extends React.Component<any, any> {
   };
 
   handleChange(e: any) {
-    //console.log('handleChange');
+    console.log('handleChange');
     this.setState({ text: e.target.value });
   }
 
   handleBlur(e: any) {
-    if (!this.props.newTodo) {
-      this.props.onSave(e.target.value);
-    }
+    // if (!this.props.newTodo) {
+    //   this.props.onSave(e.target.value);
+    // }
   }
 
   render() {

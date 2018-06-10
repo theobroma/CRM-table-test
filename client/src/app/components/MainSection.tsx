@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 //mock data if needed
 import mockClients from '../helpers/mockclients';
 import { Todo, IState } from '../model';
-import CellItem from './CellItem';
+import TableRow from './TableRow';
 
 interface MainSectionProps {
   //todoarr: Todo[];
@@ -44,11 +44,22 @@ export default class MainSection extends React.Component<any, any> {
   //       />
   //     ));
   // }
+  state = {
+    editing: false,
+    editingID: '123123'
+  };
+
+  handleDoubleClick = (id: any) => {
+    this.setState({ editing: true, editingID: id });
+    console.log('HandleDbClick from MainSection');
+  };
 
   renderClients() {
     const { clients } = this.props;
     //mock with todoarr if needed
-    return clients.map((client: any) => <CellItem key={client._id} client={client} />);
+    return clients.map((client: any) => (
+      <TableRow key={client._id} client={client} handleDoubleClick={this.handleDoubleClick} />
+    ));
   }
 
   render() {

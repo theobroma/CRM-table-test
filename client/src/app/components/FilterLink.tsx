@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as classnames from 'classnames';
+import * as cx from 'classnames';
 
 export default class FilterLink extends React.Component<any, any> {
   render() {
@@ -12,14 +12,14 @@ export default class FilterLink extends React.Component<any, any> {
     //console.log(filter);
     return (
       <li
-        className={classnames({
+        className={cx({
           isDisabled: activeFiltersCount < 2 && filter.active
         })}
       >
         <a
           href="#"
           onClick={() => this.props.toggleFilter(this.props.type)}
-          className={classnames({
+          className={cx({
             selected: this.props.filter === this.props.type,
             active: filter.active,
             button: true

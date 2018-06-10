@@ -4,12 +4,29 @@ import * as cx from 'classnames';
 import TodoTextInput from './TodoTextInput';
 
 export class TableRowItem extends React.Component<any, any> {
+  //current
   state = {
-    editing: true
+    //editing: this.props.rowEditing
+    editing: false
   };
 
+  static getDerivedStateFromProps(nextProps: any, prevState: any) {
+    //available editing just for needed fields
+    if (
+      prevState.editing !== nextProps.rowEditing &&
+      (nextProps.cellType == 'spentSum' || nextProps.cellType == 'discountProcent')
+    ) {
+      return {
+        editing: nextProps.rowEditing
+      };
+    } else {
+      return null;
+    }
+  }
+
   handleSave = (id: any, cellType: string, text: any) => {
-    this.props.editCell(id, cellType, text);
+    //this.props.editCell(id, cellType, text);
+    this.props.handleSave(id, cellType, text);
     this.setState({ editing: false });
   };
   // handleDoubleClick = (id: any) => {

@@ -6,7 +6,7 @@ class TodoTextInput extends React.Component<any, any> {
   static defaultProps = {
     text: '',
     placeholder: 'What needs to be done?',
-    editing: true,
+    editing: false,
     newTodo: true
   };
 

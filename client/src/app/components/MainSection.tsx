@@ -44,26 +44,22 @@ export default class MainSection extends React.Component<any, any> {
   //       />
   //     ));
   // }
-  state = {
-    editing: false,
-    editingID: '123123'
-  };
 
-  handleDoubleClick = (id: any) => {
-    this.setState({ editing: true, editingID: id });
-    console.log('HandleDbClick from MainSection');
-  };
+  // state = {
+  //   editing: false,
+  //   editingID: '123123'
+  // };
+
+  // handleDoubleClick = (id: any) => {
+  //   this.setState({ editing: true, editingID: id });
+  //   console.log('HandleDbClick from MainSection');
+  // };
 
   renderClients() {
     const { clients } = this.props;
     //mock with todoarr if needed
     return clients.map((client: any) => (
-      <TableRow
-        key={client._id}
-        client={client}
-        handleDoubleClick={this.handleDoubleClick}
-        editCell={this.props.editCell}
-      />
+      <TableRow key={client._id} client={client} editCell={this.props.editCell} />
     ));
   }
 

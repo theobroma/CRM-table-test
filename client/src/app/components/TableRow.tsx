@@ -8,30 +8,62 @@ export class TableRow extends React.Component<any, any> {
     editing: false
   };
 
-  handleDoubleClick = (id: any) => {
-    this.props.handleDoubleClick(id);
+  handleDoubleClick = () => {
+    //this.props.handleDoubleClick();
     this.setState({ editing: true });
-    console.log('HandleDbClick from CellItem');
+    console.log('HandleDbClick from TableRow');
   };
 
-  handleSave = (id: string, text: string, completed: boolean) => {
-    if (text.length === 0) {
-      this.props.removeTodo(id);
-    } else {
-      this.props.editTodo(id, completed, text);
-    }
+  handleSave = (id: any, cellType: any, text: any) => {
+    this.props.editCell(id, cellType, text);
     this.setState({ editing: false });
   };
 
   render() {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
     return (
-      <div className={cx({ 'Table-row': true })} onDoubleClick={() => this.handleDoubleClick(_id)}>
-        <TableRowItem text={name} cellType="name" {...this.props} />
-        <TableRowItem text={discountType} cellType="discountType" {...this.props} />
-        <TableRowItem text={spentSum} cellType="spentSum" {...this.props} />
-        <TableRowItem text={22.33} cellType="discountSum" {...this.props} />
-        <TableRowItem text={discountProcent} cellType="discountProcent" {...this.props} />
+      <div
+        className={cx({
+          'Table-row': true,
+          active: this.state.editing
+        })}
+        onDoubleClick={() => this.handleDoubleClick()}
+      >
+        <TableRowItem
+          text={name}
+          cellType="name"
+          rowEditing={this.state.editing}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          {...this.props}
+        />
+        <TableRowItem
+          text={discountType}
+          cellType="discountType"
+          rowEditing={this.state.editing}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          {...this.props}
+        />
+        <TableRowItem
+          text={spentSum}
+          cellType="spentSum"
+          rowEditing={this.state.editing}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          {...this.props}
+        />
+        <TableRowItem
+          text={22.33}
+          cellType="discountSum"
+          rowEditing={this.state.editing}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          {...this.props}
+        />
+        <TableRowItem
+          text={discountProcent}
+          cellType="discountProcent"
+          rowEditing={this.state.editing}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          {...this.props}
+        />
       </div>
     );
   }

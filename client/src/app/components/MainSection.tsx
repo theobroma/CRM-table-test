@@ -3,7 +3,6 @@ import * as React from 'react';
 import * as cx from 'classnames';
 import { connect } from 'react-redux';
 //mock data if needed
-import mockData from '../helpers/mockdata';
 import mockClients from '../helpers/mockclients';
 import { Todo, IState } from '../model';
 import CellItem from './CellItem';

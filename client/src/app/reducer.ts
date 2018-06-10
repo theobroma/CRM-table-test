@@ -2,28 +2,8 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
 import { Todo, IState } from './model';
 //mock todos reducer with data
-import mockData from './helpers/mockdata';
 import mockClients from './helpers/mockclients';
-import {
-  SET_FILTER,
-  TODOS_AJAX_FAILURE,
-  FETCH_USER_REQUEST,
-  FETCH_USER_FULFILLED,
-  FETCH_TODOS_REQUEST,
-  FETCH_TODOS_FULFILLED,
-  ADD_TODO_REQUEST,
-  ADD_TODO_FULFILLED,
-  REMOVE_TODO_REQUEST,
-  REMOVE_TODO_FULFILLED,
-  TOGGLE_TODO_REQUEST,
-  TOGGLE_TODO_FULFILLED,
-  TODOS_REMOVE_COMPLETED_REQUEST,
-  TODOS_REMOVE_COMPLETED_FULFILLED,
-  EDIT_TODO_REQUEST,
-  EDIT_TODO_FULFILLED,
-  EDIT_TODO_REJECTED,
-  TOGGLE_FILTER
-} from './actions';
+import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST } from './actions';
 
 // //filter reducer
 // function filter(state = 'SHOW_ALL', action: any) {
@@ -95,7 +75,7 @@ const clientsInitialState = {
 
 function clients(state = clientsInitialState, action: any) {
   switch (action.type) {
-    case FETCH_TODOS_REQUEST:
+    case FETCH_CLIENTS_REQUEST:
       return {
         ...state
       };

@@ -6,7 +6,7 @@ import { createEpicMiddleware } from 'redux-observable';
 import { Provider } from 'react-redux';
 import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { fetchUser, fetchTodos, addTodo, editTodo } from './actions';
+//import { fetchUser, fetchTodos, addTodo, editTodo } from './actions';
 import rootReducer from './reducer';
 //import rootEpic from './epic';
 
@@ -29,7 +29,7 @@ const composeEnhancers = composeWithDevTools({
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
 //for epic todos
-store.dispatch(fetchTodos());
+//store.dispatch(fetchTodos());
 //for epic test
 const obj = {
   id: '5b19897c55813b16b4c44080',

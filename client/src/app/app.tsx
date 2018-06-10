@@ -8,12 +8,13 @@ import { createLogger } from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { fetchUser, fetchTodos, addTodo, editTodo } from './actions';
 import rootReducer from './reducer';
-import rootEpic from './epic';
+//import rootEpic from './epic';
 
 import './styles/index.scss';
-import TodoApp from './TodoApp';
+//import TodoApp from './TodoApp';
+import MainApp from './containers/MainApp';
 
-const epicMiddleware = createEpicMiddleware(rootEpic);
+//const epicMiddleware = createEpicMiddleware(rootEpic);
 
 const logger = createLogger({
   // Collapse actions that don't have errors
@@ -25,7 +26,7 @@ const logger = createLogger({
 const composeEnhancers = composeWithDevTools({
   // Specify here name, actionsBlacklist, actionsCreators and other options
 });
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, epicMiddleware)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger)));
 
 //for epic todos
 store.dispatch(fetchTodos());
@@ -42,7 +43,7 @@ const obj = {
 
 render(
   <Provider store={store}>
-    <TodoApp />
+    <MainApp />
   </Provider>,
   document.getElementById('root')
 );

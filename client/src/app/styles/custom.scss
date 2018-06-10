@@ -1,16 +1,48 @@
-//crutch
-.toggle-all{
-    position: absolute;
-    top: -55px;
-    z-index:9999;
-    height: 40px;
-    width: 40px;
-    &:hover{
-        cursor: pointer;
-    }
+$c-grey: #f3f3f3;
+$c-brown: #2b0514;
+
+.wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background: #ccc;
+  display: flex;
+  flex-direction: column;
 }
-.destroy{
-    &:hover{
-        cursor: pointer;
-    }
+.header,
+.footer {
+  height: 50px;
+  background: #666;
+  color: #fff;
+}
+.content {
+  display: flex;
+  flex: 1;
+  background: #999;
+  color: #000;
+}
+.columns {
+  display: flex;
+  flex: 1;
+}
+.main {
+  flex: 1;
+  order: 2;
+  background: #eee;
+}
+.sidebar-first {
+  width: 20%;
+  background: #ccc;
+  order: 1;
+}
+.sidebar-second {
+  width: 20%;
+  order: 3;
+  background: #ddd;
+}
+
+// generate Flexbox grow-rate utility classes
+@for $i from 1 through 10 {
+  .u-Flex-grow#{$i} {
+    flex-grow: i;
+  }
 }

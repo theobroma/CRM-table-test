@@ -21,43 +21,24 @@ class MainApp extends React.Component<any, any> {
   }
 
   render() {
-    const { todos } = this.props;
+    const { clients } = this.props;
     let footer;
 
-    const activeTodoCount = todos.reduce(function(accum: any, todo: any) {
-      return todo.completed ? accum : accum + 1;
-    }, 0);
-
-    const completedCount = todos.length - activeTodoCount;
-
-    if (activeTodoCount || completedCount) {
-      footer = (
-        <Footer
-          count={activeTodoCount}
-          completedCount={completedCount}
-          filter={this.props.currentFilter}
-          setFilter={this.props.setFilter}
-          removeCompleted={this.props.removeCompleted}
-        />
-      );
-    }
-
     return (
-      <div>
-        {/*Header*/}
-        <Header addTodo={this.props.addTodo} />
+      <div className="wrapper">
+        <header className="header">Header: Fixed height</header>
+        <section className="content">
+          <div className="columns">
+            <main className="main">
+              <MainSection clients={clients} filter={this.props.currentFilter} />
+            </main>
+            <aside className="sidebar-first">Sidebar first: Fixed width</aside>
+            <aside className="sidebar-second">Sidebar second: Fixed width</aside>
+          </div>
+        </section>
+        <footer className="footer">Footer: Fixed height</footer>
         {/*Main*/}
-        <MainSection
-          todos={todos}
-          completedCount={completedCount}
-          filter={this.props.currentFilter}
-          addTodo={this.props.addTodo}
-          removeTodo={this.props.removeTodo}
-          toggleTodo={this.props.toggleTodo}
-          editTodo={this.props.editTodo}
-        />
-        {/*Footer*/}
-        {footer}
+        {/* <MainSection clients={clients} filter={this.props.currentFilter} /> */}
       </div>
     );
   }
@@ -65,7 +46,7 @@ class MainApp extends React.Component<any, any> {
 
 function mapStateToProps(state: any) {
   return {
-    todos: state.todos.data,
+    clients: state.clients.data,
     currentFilter: state.filter
   };
 }

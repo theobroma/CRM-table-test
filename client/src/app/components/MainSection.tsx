@@ -4,7 +4,6 @@ import * as cx from 'classnames';
 import { connect } from 'react-redux';
 //mock data if needed
 import mockClients from '../helpers/mockclients';
-import { Todo, IState } from '../model';
 import TableRow from './TableRow';
 
 interface MainSectionProps {
@@ -14,7 +13,7 @@ interface MainSectionState {}
 
 //replace todoarr with state from redux or reverse
 export default class MainSection extends React.Component<any, any> {
-  // _filterTodos = (todo: any) =>
+  // _filterClients = (client: any) =>
   //   this.props.filter === 'SHOW_ALL' ||
   //   (this.props.filter === 'SHOW_ACTIVE' && !todo.completed) ||
   //   (this.props.filter === 'SHOW_COMPLETED' && todo.completed);
@@ -80,37 +79,4 @@ export default class MainSection extends React.Component<any, any> {
       </section>
     );
   }
-}
-
-{
-  /* <section className="sheet-container">
-<div className="table-header">
-  <div className="table-header-item">Клиент</div>
-  <div className="table-header-item">Скидка</div>
-  <div className="table-header-item">Потрачено</div>
-  <div className="table-header-item">СК.Сумма</div>
-  <div className="table-header-item">Скидка</div>
-</div>
-<div className="table-body">{this.renderClients()}</div>
-</section> */
-}
-
-{
-  /* <div className="Table-row">
-  <div className="Table-row-item" data-header="Header1">
-    row2 col1
-  </div>
-  <div className="Table-row-item" data-header="Header2">
-    row2 col2
-  </div>
-  <div className="Table-row-item" data-header="Header3">
-    row2 col3
-  </div>
-  <div className="Table-row-item" data-header="Header4">
-    row2 col4
-  </div>
-  <div className="Table-row-item" data-header="Header4">
-    row1 col4
-  </div>
-</div> */
 }

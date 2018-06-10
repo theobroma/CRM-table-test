@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import * as React from 'react';
 import * as cx from 'classnames';
 
-import { Todo, IState } from '../model';
-
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 

@@ -9,17 +9,20 @@ export default class FilterLink extends React.Component<any, any> {
     const filter = filters.filter((filter: any) => {
       return filter.name == this.props.type.toLowerCase();
     })[0];
-    console.log(filter);
+    //console.log(filter);
     return (
-      <li>
+      <li
+        className={classnames({
+          isDisabled: activeFiltersCount < 2 && filter.active
+        })}
+      >
         <a
           href="#"
           onClick={() => this.props.toggleFilter(this.props.type)}
           className={classnames({
             selected: this.props.filter === this.props.type,
             active: filter.active,
-            button: true,
-            isDisabled: false
+            button: true
           })}
         >
           {this.props.children}

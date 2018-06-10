@@ -64,43 +64,7 @@ export default class MainSection extends React.Component<any, any> {
             <div className="Table-row-item">СК.Сумма</div>
             <div className="Table-row-item">Скидка</div>
           </div>
-          <div className="Table-body">
-            {/* <div className="Table-row">
-              <div className="Table-row-item" data-header="Header1">
-                row1 col1
-              </div>
-              <div className="Table-row-item" data-header="Header2">
-                row1 col2
-              </div>
-              <div className="Table-row-item" data-header="Header3">
-                row1 col3
-              </div>
-              <div className="Table-row-item" data-header="Header4">
-                row1 col4
-              </div>
-              <div className="Table-row-item" data-header="Header4">
-                row1 col4
-              </div>
-            </div>
-            <div className="Table-row">
-              <div className="Table-row-item" data-header="Header1">
-                row2 col1
-              </div>
-              <div className="Table-row-item" data-header="Header2">
-                row2 col2
-              </div>
-              <div className="Table-row-item" data-header="Header3">
-                row2 col3
-              </div>
-              <div className="Table-row-item" data-header="Header4">
-                row2 col4
-              </div>
-              <div className="Table-row-item" data-header="Header4">
-                row1 col4
-              </div>
-            </div> */}
-            {this.renderClients()}
-          </div>
+          <div className="Table-body">{this.renderClients()}</div>
         </div>
       </section>
     );

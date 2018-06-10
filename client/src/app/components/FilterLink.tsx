@@ -8,7 +8,7 @@ export default class FilterLink extends React.Component<any, any> {
         <a
           href="#"
           onClick={() => this.props.setFilter(this.props.type)}
-          className={classnames({ selected: this.props.filter === this.props.type })}
+          className={classnames({ selected: this.props.filter === this.props.type, button: true })}
         >
           {this.props.children}
         </a>

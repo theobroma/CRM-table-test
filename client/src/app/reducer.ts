@@ -21,27 +21,68 @@ import {
   TODOS_REMOVE_COMPLETED_FULFILLED,
   EDIT_TODO_REQUEST,
   EDIT_TODO_FULFILLED,
-  EDIT_TODO_REJECTED
+  EDIT_TODO_REJECTED,
+  TOGGLE_FILTER
 } from './actions';
 
+// //filter reducer
+// function filter(state = 'SHOW_ALL', action: any) {
+//   if (action.type === SET_FILTER) {
+//     return action.filter;
+//   }
+//   return state;
+// }
+
+const filtersInitialState = {
+  data: [
+    { name: 'gold', value: false },
+    { name: 'silver', value: true },
+    { name: 'wood', value: true },
+    { name: 'standart', value: false }
+  ]
+};
+
 //filter reducer
-function filter(state = 'SHOW_ALL', action: any) {
-  if (action.type === SET_FILTER) {
-    return action.filter;
-  }
+function filters(state = filtersInitialState, action: any) {
+  // if (action.type === TOGGLE_FILTER) {
+  //   switch (action.filter) {
+  //     case 'GOLD':
+  //       return {
+  //         ...state,
+  //         gold: !state.gold
+  //       };
+  //     case 'SILVER':
+  //       return {
+  //         ...state,
+  //         silver: !state.silver
+  //       };
+  //     case 'WOOD':
+  //       return {
+  //         ...state,
+  //         wood: !state.wood
+  //       };
+  //     case 'STANDART':
+  //       return {
+  //         ...state,
+  //         standart: !state.standart
+  //       };
+  //     default:
+  //       return state;
+  //   }
+  // }
   return state;
 }
 
 //data from file
 const DefaultState: any = mockClients;
 
-const initialState = {
+const clientsInitialState = {
   data: mockClients,
   pending: false,
   error: null
 };
 
-function clients(state = initialState, action: any) {
+function clients(state = clientsInitialState, action: any) {
   switch (action.type) {
     case FETCH_TODOS_REQUEST:
       return {
@@ -68,6 +109,6 @@ function clients(state = initialState, action: any) {
 // };
 
 export default combineReducers({
-  filter,
+  filters,
   clients
 });

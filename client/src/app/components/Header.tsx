@@ -2,29 +2,38 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import TodoTextInput from './TodoTextInput';
+import FilterLink from './FilterLink';
 
-interface HeaderProps {
-  addTodo: (text: string) => any;
-}
-
-export default class Header extends React.Component<HeaderProps> {
-  handleSave(text: string) {
-    if (text.length !== 0) {
-      this.props.addTodo(text);
-    }
-  }
-  //onSave same name method as in TodoItem component
-  //caused by reuse in different components: this and TodoItem as edit input
+export default class Header extends React.Component<any, any> {
   render() {
     return (
       <header className="header">
-        <h1>todos</h1>
-        <TodoTextInput
-          newTodo
-          onSave={this.handleSave.bind(this)}
-          placeholder="What needs to be done?"
-        />
+        <div className="sidebar-first-pad">1231</div>
+        <div className="buttons">
+          <ul className="filters">
+            <FilterLink type={'GOLD'} {...this.props}>
+              Gold
+            </FilterLink>
+            <FilterLink type={'SILVER'} {...this.props}>
+              Silver
+            </FilterLink>
+            <FilterLink type={'WOOD'} {...this.props}>
+              Wood
+            </FilterLink>
+            <FilterLink type={'STANDART'} {...this.props}>
+              Standart
+            </FilterLink>
+          </ul>
+        </div>
+        <div className="header-profile">admin</div>
       </header>
     );
   }
+}
+
+{
+  /* <a className="button">Gold</a>
+<a className="button">Silver</a>
+<a className="button">Wood</a>
+<a className="button">Standart</a> */
 }

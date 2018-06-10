@@ -10,7 +10,15 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 
-import { setFilter, addTodo, removeTodo, toggleTodo, removeCompleted, editTodo } from '../actions';
+import {
+  setFilter,
+  addTodo,
+  removeTodo,
+  toggleTodo,
+  removeCompleted,
+  editTodo,
+  toggleFilter
+} from '../actions';
 //import getTodos from '../api';
 //import { fetchTodos } from '../actions';
 interface AppProps {}
@@ -21,12 +29,17 @@ class MainApp extends React.Component<any, any> {
   }
 
   render() {
-    const { clients } = this.props;
+    const { clients, filters } = this.props;
     let footer;
+
+    const activeFiltersCount = filters.reduce(function(accum: any, filter: any) {
+      return filter.value == true ? accum : accum + 1;
+    }, 0);
 
     return (
       <div className="wrapper">
-        <header className="header">Header: Fixed height</header>
+        {/* <header className="header">Header: Fixed height</header> */}
+        <Header setFilter={this.props.toggleFilter} />
         <section className="content">
           <div className="columns">
             <main className="main">
@@ -37,7 +50,7 @@ class MainApp extends React.Component<any, any> {
           </div>
         </section>
         <footer className="footer">Footer: Fixed height</footer>
-        {/*Main*/}
+        {activeFiltersCount}
         {/* <MainSection clients={clients} filter={this.props.currentFilter} /> */}
       </div>
     );
@@ -47,12 +60,13 @@ class MainApp extends React.Component<any, any> {
 function mapStateToProps(state: any) {
   return {
     clients: state.clients.data,
-    currentFilter: state.filter
+    filters: state.filters.data
   };
 }
 
 const mapDispatchToProps = (dispatch: any) => ({
   setFilter: (filter: string) => dispatch(setFilter(filter)),
+  toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
   removeCompleted: () => dispatch(removeCompleted()),
   addTodo: (text: string) => dispatch(addTodo(text)),
   removeTodo: (id: string) => dispatch(removeTodo(id)),

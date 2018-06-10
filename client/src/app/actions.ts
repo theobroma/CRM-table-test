@@ -30,10 +30,18 @@ export const EDIT_TODO_FULFILLED = 'EDIT_TODO_FULFILLED';
 export const EDIT_TODO_REJECTED = 'EDIT_TODO_REJECTED';
 
 export const SET_FILTER = 'SET_FILTER';
+export const TOGGLE_FILTER = 'TOGGLE_FILTER';
 
 export const setFilter = (filter: any) => {
   return {
     type: 'SET_FILTER',
+    filter
+  };
+};
+
+export const toggleFilter = (filter: any) => {
+  return {
+    type: 'TOGGLE_FILTER',
     filter
   };
 };

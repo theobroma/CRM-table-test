@@ -50,7 +50,7 @@ class TodoTextInput extends React.Component<any, any> {
     const text = e.target.value.trim();
     //console.log(text);
     if (e.which === 13) {
-      this.props.onSave(this.props.client._id, this.props.cellType, 'mytext');
+      this.props.onSave(this.props.client._id, this.props.cellType, text);
       // if (this.props.newTodo) {
       //   this.setState({ text: '' });
       // }

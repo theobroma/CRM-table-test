@@ -43,7 +43,21 @@ function clients(state = clientsInitialState, action: any) {
       };
     case EDIT_CELL_REQUEST:
       return {
-        ...state
+        ...state,
+        data: state.data.map((client: any) => {
+          if (client._id === action.payload.id) {
+            //return { ...client, name: action.payload.text };
+            if (action.payload.cellType == 'spentSum') {
+              return { ...client, spentSum: action.payload.text };
+            }
+            if (action.payload.cellType == 'discountProcent') {
+              return { ...client, discountProcent: action.payload.text };
+            } else {
+              return client;
+            }
+          }
+          return client;
+        })
       };
     default:
       return state;

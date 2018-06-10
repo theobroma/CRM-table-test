@@ -69,3 +69,15 @@
 .filters li a.selected {
   border-color: rgba(175, 47, 47, 0.2);
 }
+
+.filters li a.active {
+  border-color: $c-pink;
+  color: $c-pink;
+}
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}

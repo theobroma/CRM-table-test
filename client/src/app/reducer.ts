@@ -35,10 +35,10 @@ import {
 
 const filtersInitialState = {
   data: [
-    { name: 'gold', value: false },
-    { name: 'silver', value: true },
-    { name: 'wood', value: true },
-    { name: 'standart', value: false }
+    { name: 'gold', active: false },
+    { name: 'silver', active: true },
+    { name: 'wood', active: true },
+    { name: 'standart', active: false }
   ]
 };
 

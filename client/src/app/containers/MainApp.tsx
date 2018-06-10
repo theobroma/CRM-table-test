@@ -33,13 +33,13 @@ class MainApp extends React.Component<any, any> {
     let footer;
 
     const activeFiltersCount = filters.reduce(function(accum: any, filter: any) {
-      return filter.value == true ? accum : accum + 1;
+      return filter.active == true ? accum : accum + 1;
     }, 0);
 
     return (
       <div className="wrapper">
         {/* <header className="header">Header: Fixed height</header> */}
-        <Header setFilter={this.props.toggleFilter} />
+        <Header toggleFilter={this.props.toggleFilter} filters={this.props.filters} />
         <section className="content">
           <div className="columns">
             <main className="main">

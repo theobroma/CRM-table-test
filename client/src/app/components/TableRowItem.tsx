@@ -37,22 +37,17 @@ export class TableRowItem extends React.Component<any, any> {
   };
 
   render() {
-    let element;
-    if (this.state.editing) {
-      element = (
-        <div className="Table-row-item">
-          <TextInput
-            text={this.props.text}
-            onSave={() => this.handleSave()}
-            handleChange={(text: any) => this.handleChange(text)}
-          />
-        </div>
-      );
-    } else {
-      element = <div className="Table-row-item">{this.props.text}</div>;
-    }
-    //element = <div className="Table-row-item">{this.props.value}</div>;
-    return <React.Fragment>{element}</React.Fragment>;
+    return this.state.editing ? (
+      <div className="Table-row-item">
+        <TextInput
+          text={this.props.text}
+          onSave={() => this.handleSave()}
+          handleChange={(text: any) => this.handleChange(text)}
+        />
+      </div>
+    ) : (
+      <div className="Table-row-item">{this.props.text}</div>
+    );
   }
 }
 

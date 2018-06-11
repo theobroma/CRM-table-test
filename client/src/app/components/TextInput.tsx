@@ -29,20 +29,17 @@ class TextInput extends React.Component<any, any> {
 
   render() {
     return (
-      <React.Fragment>
-        <input
-          className={classNames({
-            edit: this.props.editing
-          })}
-          type="text"
-          placeholder={this.props.placeholder}
-          autoFocus={true}
-          value={this.state.text}
-          onChange={this.handleChange.bind(this)}
-          onKeyDown={this.handleSubmit.bind(this)}
-        />
-        {/* <pre>{JSON.stringify(this.state, null, 4)}</pre> */}
-      </React.Fragment>
+      <input
+        className={classNames({
+          edit: this.props.editing
+        })}
+        type="text"
+        placeholder={this.props.placeholder}
+        autoFocus={true}
+        value={this.state.text}
+        onChange={this.handleChange.bind(this)}
+        onKeyDown={this.handleSubmit.bind(this)}
+      />
     );
   }
 }

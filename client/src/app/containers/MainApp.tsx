@@ -5,18 +5,19 @@ import * as cx from 'classnames';
 
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
-
+//import getActiveFilters from '../reducer';
 import { toggleFilter, editCell } from '../actions';
 interface AppProps {}
 
 class MainApp extends React.Component<any, any> {
   render() {
-    const { clients, filters } = this.props;
+    const { clients, filters, activeFilters } = this.props;
     let footer;
 
-    const activeFiltersCount = filters.filter((filter: any) => {
-      return filter.active;
-    }).length;
+    const activeFiltersCount = activeFilters.length;
+    // const activeFiltersCount = filters.filter((filter: any) => {
+    //   return filter.active;
+    // }).length;
 
     return (
       <div className="wrapper">
@@ -46,12 +47,19 @@ class MainApp extends React.Component<any, any> {
   }
 }
 
-function mapStateToProps(state: any) {
+function getActiveFiltersCount(state: any, props: any) {
+  return state.filters.data.filter((filter: any) => {
+    return filter.active;
+  });
+}
+
+const mapStateToProps = (state: any, props: any) => {
   return {
     clients: state.clients.data,
-    filters: state.filters.data
+    filters: state.filters.data,
+    activeFilters: getActiveFiltersCount(state, props)
   };
-}
+};
 
 const mapDispatchToProps = (dispatch: any) => ({
   toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),

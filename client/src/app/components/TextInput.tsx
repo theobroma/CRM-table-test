@@ -46,15 +46,16 @@ class TextInput extends React.Component<any, any> {
   // }
 
   handleSubmit = (e: any) => {
-    const text = e.target.value.trim();
     if (e.which === 13) {
-      this.props.onSave(this.props.cellType, text);
+      this.props.onSave();
     }
   };
 
   handleChange(e: any) {
     //console.log('handleChange');
-    this.setState({ text: e.target.value });
+    const text = e.target.value;
+    this.setState({ text: text });
+    this.props.handleChange(text);
   }
 
   render() {

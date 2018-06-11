@@ -2,7 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
 //mock data
 import mockClients from './helpers/mockclients';
-import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST, TOGGLE_EDITING } from './actions';
+import {
+  TOGGLE_FILTER,
+  FETCH_CLIENTS_REQUEST,
+  EDIT_CELL_REQUEST,
+  TOGGLE_EDITING,
+  EDIT_ROW_REQUEST
+} from './actions';
 
 const editingInitialState = {
   clientID: ''
@@ -70,6 +76,16 @@ function clients(state = clientsInitialState, action: any) {
             } else {
               return client;
             }
+          }
+          return client;
+        })
+      };
+    case EDIT_ROW_REQUEST:
+      return {
+        ...state,
+        data: state.data.map((client: any) => {
+          if (client._id === action.data._id) {
+            return { ...action.data };
           }
           return client;
         })

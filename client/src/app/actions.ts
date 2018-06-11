@@ -22,9 +22,9 @@ export const editCell = (id: string, cellType: string, text: string) => {
   return { type: EDIT_CELL_REQUEST, payload: { id, cellType, text } };
 };
 
-export const editRow = (id: string, data: any) => {
+export const editRow = (data: any) => {
   //console.log(text);
-  return { type: EDIT_ROW_REQUEST, payload: { id, data } };
+  return { type: EDIT_ROW_REQUEST, data: data };
 };
 
 export const toggleRowEditing = (id: any) => {

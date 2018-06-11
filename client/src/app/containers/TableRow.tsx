@@ -14,7 +14,7 @@ const mapStateToProps = (state: any, props: any) => {
 
 const mapDispatchToProps = (dispatch: any) => ({
   toggleRowEditing: (id: string) => dispatch(toggleRowEditing(id)),
-  editRow: (id: string, data: any) => dispatch(editRow(id, data))
+  editRow: (data: any) => dispatch(editRow(data))
 });
 
 export default connect(

@@ -15,21 +15,25 @@ export class TableRow extends React.Component<any, any> {
     //console.log('HandleDbClick from TableRow');
   };
 
-  handleSave = (id: any, cellType: any, text: any) => {
+  handleSaveRow = () => {
     console.log('Handle save from TableRow');
-    //this.props.editCell(id, cellType, text);
-    //this.setState({ editing: false });
+    this.props.editRow(this.state.data);
+  };
+  handleChangeRow(cellType: any, text: any) {
+    console.log('handleChange from TableRow');
+    console.log(cellType);
+    console.log(text);
     if (cellType == 'spentSum') {
-      return { ...this.state.data, spentSum: text };
+      let data = { ...this.state.data };
+      data.spentSum = text;
+      this.setState({ data }, () => console.log(this.state));
     }
     if (cellType == 'discountProcent') {
-      return { ...this.state.data, discountProcent: text };
-    } else {
-      return this.state.data;
+      let data = { ...this.state.data };
+      data.discountProcent = text;
+      this.setState({ data }, () => console.log(this.state));
     }
-    console.log(this.state.data);
-    //this.props.editRow(id, data);
-  };
+  }
 
   handleOnBlur = () => {
     //this.setState({ editing: false });
@@ -49,35 +53,37 @@ export class TableRow extends React.Component<any, any> {
         <TableRowItem
           text={name}
           cellType="name"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={discountType}
           cellType="discountType"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={spentSum}
           cellType="spentSum"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={22.33}
           cellType="discountSum"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={discountProcent}
           cellType="discountProcent"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+          handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
+          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />

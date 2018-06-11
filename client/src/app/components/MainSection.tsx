@@ -16,8 +16,7 @@ export default class MainSection extends React.Component<any, any> {
         activeFilters.push(filter.name);
       }
     });
-    const check = activeFilters.indexOf(client.discountType) > -1;
-    return check ? true : false;
+    return activeFilters.indexOf(client.discountType) > -1;
   };
 
   renderClients() {

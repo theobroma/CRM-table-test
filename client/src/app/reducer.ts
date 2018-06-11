@@ -1,6 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
-//mock todos reducer with data
+//mock data
 import mockClients from './helpers/mockclients';
 import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST } from './actions';
 

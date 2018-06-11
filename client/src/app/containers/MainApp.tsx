@@ -1,4 +1,3 @@
-//Very useful template for understanding structure of  https://github.com/tastejs/todomvc-app-css
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as React from 'react';
@@ -8,22 +7,16 @@ import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 
 import { toggleFilter, editCell } from '../actions';
-//import getTodos from '../api';
-//import { fetchTodos } from '../actions';
 interface AppProps {}
 
 class MainApp extends React.Component<any, any> {
-  componentDidMount() {
-    //this.props.fetchTodos();
-  }
-
   render() {
     const { clients, filters } = this.props;
     let footer;
 
-    const activeFiltersCount = filters.reduce(function(accum: any, filter: any) {
-      return filter.active == false ? accum : accum + 1;
-    }, 0);
+    const activeFiltersCount = filters.filter((filter: any) => {
+      return filter.active;
+    }).length;
 
     return (
       <div className="wrapper">
@@ -48,7 +41,6 @@ class MainApp extends React.Component<any, any> {
         </section>
         <footer className="footer">Footer: Fixed height</footer>
         {activeFiltersCount}
-        {/* <MainSection clients={clients} filter={this.props.currentFilter} /> */}
       </div>
     );
   }

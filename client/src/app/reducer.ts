@@ -4,6 +4,19 @@ import { Action, AnyAction } from 'redux';
 import mockClients from './helpers/mockclients';
 import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST } from './actions';
 
+const editingInitialState = {
+  editing: false
+};
+
+function editing(state = editingInitialState, action: any) {
+  switch (action.type) {
+    case 123:
+
+    default:
+      return state;
+  }
+}
+
 const filtersInitialState = {
   data: [
     { name: 'gold', active: false },
@@ -65,5 +78,6 @@ function clients(state = clientsInitialState, action: any) {
 
 export default combineReducers({
   filters,
-  clients
+  clients,
+  editing
 });

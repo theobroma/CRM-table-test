@@ -4,9 +4,9 @@ import * as cx from 'classnames';
 import { connect } from 'react-redux';
 //mock data if needed
 import mockClients from '../helpers/mockclients';
-import TableRow from './TableRow';
+//import TableRow from './TableRow';
+import TableRow from '../Containers/TableRow';
 
-//replace todoarr with state from redux or reverse
 export default class MainSection extends React.Component<any, any> {
   _filterClients = (client: any) => {
     //const activeFilters = ['wood', 'silver'];

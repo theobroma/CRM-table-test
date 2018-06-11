@@ -2,13 +2,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
 //mock data
 import mockClients from './helpers/mockclients';
-import {
-  TOGGLE_FILTER,
-  FETCH_CLIENTS_REQUEST,
-  EDIT_CELL_REQUEST,
-  TOGGLE_EDITING,
-  EDIT_ROW_REQUEST
-} from './actions';
+import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, TOGGLE_EDITING, EDIT_ROW_REQUEST } from './actions';
 
 const editingInitialState = {
   clientID: ''
@@ -62,23 +56,6 @@ function clients(state = clientsInitialState, action: any) {
     case FETCH_CLIENTS_REQUEST:
       return {
         ...state
-      };
-    case EDIT_CELL_REQUEST:
-      return {
-        ...state,
-        data: state.data.map((client: any) => {
-          if (client._id === action.payload.id) {
-            if (action.payload.cellType == 'spentSum') {
-              return { ...client, spentSum: action.payload.text };
-            }
-            if (action.payload.cellType == 'discountProcent') {
-              return { ...client, discountProcent: action.payload.text };
-            } else {
-              return client;
-            }
-          }
-          return client;
-        })
       };
     case EDIT_ROW_REQUEST:
       return {

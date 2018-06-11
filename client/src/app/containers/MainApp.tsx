@@ -6,7 +6,7 @@ import * as cx from 'classnames';
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 //import getActiveFilters from '../reducer';
-import { toggleFilter, editCell } from '../actions';
+import { toggleFilter } from '../actions';
 interface AppProps {}
 
 class MainApp extends React.Component<any, any> {
@@ -58,11 +58,7 @@ const mapStateToProps = (state: any, props: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
-  editCell: (id: string, cellType: string, text: string) => {
-    //console.log(cellType);
-    return dispatch(editCell(id, cellType, text));
-  }
+  toggleFilter: (filter: string) => dispatch(toggleFilter(filter))
 });
 
 export default connect(

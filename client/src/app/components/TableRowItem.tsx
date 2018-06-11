@@ -30,10 +30,7 @@ export class TableRowItem extends React.Component<any, any> {
   };
 
   handleChange = (text: any) => {
-    // console.log('handleChange from TableRowItem');
-    // console.log(this.props.cellType);
     this.props.handleChangeRow(this.props.cellType, text);
-    // this.setState({ text: e.target.value });
   };
 
   render() {

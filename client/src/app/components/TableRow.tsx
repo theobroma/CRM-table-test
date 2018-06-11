@@ -4,8 +4,6 @@ import TableRowItem from './TableRowItem';
 
 export class TableRow extends React.Component<any, any> {
   state = {
-    //editing: false
-    //editing: this.props.rowEditing
     data: this.props.client
   };
 
@@ -22,12 +20,14 @@ export class TableRow extends React.Component<any, any> {
     if (cellType == 'spentSum') {
       let data = { ...this.state.data };
       data.spentSum = text;
-      this.setState({ data }, () => console.log(this.state));
+      //this.setState({ data }, () => console.log(this.state));
+      this.setState({ data });
     }
     if (cellType == 'discountProcent') {
       let data = { ...this.state.data };
       data.discountProcent = text;
-      this.setState({ data }, () => console.log(this.state));
+      //this.setState({ data }, () => console.log(this.state));
+      this.setState({ data });
     }
   }
 

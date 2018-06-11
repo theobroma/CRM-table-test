@@ -4,9 +4,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducer';
 
 const logger = createLogger({
-  // Collapse actions that don't have errors
-  //need to fix in ts
-  //collapsed: (getState, action, logEntry) => !logEntry.error
   collapsed: true
 });
 

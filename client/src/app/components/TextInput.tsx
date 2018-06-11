@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-//class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextInputState>
 class TextInput extends React.Component<any, any> {
   static defaultProps = {
     text: '',
@@ -10,7 +9,6 @@ class TextInput extends React.Component<any, any> {
   };
 
   state = {
-    //text: '123'
     text: this.props.text
   };
 
@@ -21,7 +19,6 @@ class TextInput extends React.Component<any, any> {
   };
 
   handleChange(e: any) {
-    //console.log('handleChange');
     const text = e.target.value;
     this.setState({ text: text });
     this.props.handleChange(text);

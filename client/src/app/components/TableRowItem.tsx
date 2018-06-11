@@ -13,11 +13,11 @@ export class TableRowItem extends React.Component<any, any> {
   static getDerivedStateFromProps(nextProps: any, prevState: any) {
     //available editing just for needed fields
     if (
-      prevState.editing !== nextProps.rowEditing &&
+      prevState.editing !== nextProps.isRowEditing &&
       (nextProps.cellType == 'spentSum' || nextProps.cellType == 'discountProcent')
     ) {
       return {
-        editing: nextProps.rowEditing
+        editing: nextProps.isRowEditing
       };
     } else {
       return null;

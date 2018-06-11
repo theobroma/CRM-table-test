@@ -3,23 +3,24 @@ import * as cx from 'classnames';
 import TableRowItem from './TableRowItem';
 
 export class TableRow extends React.Component<any, any> {
-  state = {
-    editing: false
-  };
+  // state = {
+  //   //editing: false
+  //   editing: this.props.rowEditing
+  // };
 
-  handleDoubleClick = () => {
-    //this.props.handleDoubleClick();
-    this.setState({ editing: true });
+  handleDoubleClick = (id: any) => {
+    this.props.toggleRowEditing(id);
+    //this.setState({ editing: true });
     //console.log('HandleDbClick from TableRow');
   };
 
   handleSave = (id: any, cellType: any, text: any) => {
     this.props.editCell(id, cellType, text);
-    this.setState({ editing: false });
+    //this.setState({ editing: false });
   };
 
   handleOnBlur = () => {
-    this.setState({ editing: false });
+    //this.setState({ editing: false });
     //console.log('handleOnBlur from TableRow');
   };
   //FIXME: enhance DRY
@@ -29,14 +30,13 @@ export class TableRow extends React.Component<any, any> {
       <div
         className={cx({
           'Table-row': true,
-          active: this.state.editing
+          active: this.props.isRowEditing
         })}
-        onDoubleClick={() => this.handleDoubleClick()}
+        onDoubleClick={() => this.handleDoubleClick(_id)}
       >
         <TableRowItem
           text={name}
           cellType="name"
-          rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
@@ -44,7 +44,6 @@ export class TableRow extends React.Component<any, any> {
         <TableRowItem
           text={discountType}
           cellType="discountType"
-          rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
@@ -52,7 +51,6 @@ export class TableRow extends React.Component<any, any> {
         <TableRowItem
           text={spentSum}
           cellType="spentSum"
-          rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
@@ -60,7 +58,6 @@ export class TableRow extends React.Component<any, any> {
         <TableRowItem
           text={22.33}
           cellType="discountSum"
-          rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
@@ -68,7 +65,6 @@ export class TableRow extends React.Component<any, any> {
         <TableRowItem
           text={discountProcent}
           cellType="discountProcent"
-          rowEditing={this.state.editing}
           handleSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
           handleOnBlur={() => this.handleOnBlur()}
           {...this.props}

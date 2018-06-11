@@ -1,25 +1,19 @@
 import { connect } from 'react-redux';
 import TableRow from '../components/TableRow';
-import {} from '../actions';
+import { toggleRowEditing } from '../actions';
 
-// function getActiveFiltersCount(state: any, props: any) {
-//   return state.filters.data.filter((filter: any) => {
-//     return filter.active;
-//   });
-// }
+function isRowEditing(state: any, props: any) {
+  return state.rowEditing.clientID == props.client._id;
+}
 
 const mapStateToProps = (state: any, props: any) => {
   return {
-    editing: state.editing
+    isRowEditing: isRowEditing(state, props)
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  // toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
-  // editCell: (id: string, cellType: string, text: string) => {
-  //   //console.log(cellType);
-  //   return dispatch(editCell(id, cellType, text));
-  // }
+  toggleRowEditing: (id: string) => dispatch(toggleRowEditing(id))
 });
 
 export default connect(

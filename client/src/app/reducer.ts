@@ -2,16 +2,19 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Action, AnyAction } from 'redux';
 //mock data
 import mockClients from './helpers/mockclients';
-import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST } from './actions';
+import { TOGGLE_FILTER, FETCH_CLIENTS_REQUEST, EDIT_CELL_REQUEST, TOGGLE_EDITING } from './actions';
 
 const editingInitialState = {
-  editing: false
+  clientID: ''
 };
 
-function editing(state = editingInitialState, action: any) {
+function rowEditing(state = editingInitialState, action: any) {
   switch (action.type) {
-    case 123:
-
+    case TOGGLE_EDITING:
+      return {
+        ...state,
+        clientID: action.id
+      };
     default:
       return state;
   }
@@ -79,5 +82,5 @@ function clients(state = clientsInitialState, action: any) {
 export default combineReducers({
   filters,
   clients,
-  editing
+  rowEditing
 });

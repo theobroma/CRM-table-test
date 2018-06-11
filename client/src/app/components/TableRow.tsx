@@ -31,7 +31,6 @@ export class TableRow extends React.Component<any, any> {
     }
   }
 
-  handleOnBlur = () => {};
   //FIXME: enhance DRY
   render() {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
@@ -47,14 +46,12 @@ export class TableRow extends React.Component<any, any> {
           text={name}
           cellType="name"
           handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={discountType}
           cellType="discountType"
           handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -62,14 +59,12 @@ export class TableRow extends React.Component<any, any> {
           cellType="spentSum"
           handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
           handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
           text={22.33}
           cellType="discountSum"
           handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
         <TableRowItem
@@ -77,7 +72,6 @@ export class TableRow extends React.Component<any, any> {
           cellType="discountProcent"
           handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
           handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          handleOnBlur={() => this.handleOnBlur()}
           {...this.props}
         />
       </div>

@@ -35,20 +35,6 @@ export class TableRowItem extends React.Component<any, any> {
     this.props.handleChangeRow(this.props.cellType, text);
     // this.setState({ text: e.target.value });
   };
-  // handleDoubleClick = (id: any) => {
-  //   this.props.handleDoubleClick(id);
-  //   this.setState({ editing: true });
-  //   console.log('HandleDbClick from CellItem');
-  // };
-
-  // handleSave = (id: string, text: string, completed: boolean) => {
-  //   if (text.length === 0) {
-  //     this.props.removeTodo(id);
-  //   } else {
-  //     this.props.editTodo(id, completed, text);
-  //   }
-  //   this.setState({ editing: false });
-  // };
 
   render() {
     let element;

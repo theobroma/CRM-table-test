@@ -13,37 +13,6 @@ class TextInput extends React.Component<any, any> {
     //text: '123'
     text: this.props.text
   };
-  //https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
-
-  // static getDerivedStateFromProps(nextProps: any, prevState: any) {
-  //   if (prevState.text !== nextProps.text) {
-  //     return {
-  //       text: nextProps.text
-  //     };
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
-  // static getDerivedStateFromProps(nextProps: any, prevState: any) {
-  //   if (prevState.text !== nextProps.text) {
-  //     return {
-  //       text: nextProps.text
-  //     };
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
-  // handleSubmit(e: any) {
-  //   const text = e.target.value.trim();
-  //   if (e.which === 13) {
-  //     this.props.addTodo(text);
-  //     if (this.props.newTodo) {
-  //       this.setState({ text: '' });
-  //     }
-  //   }
-  // }
 
   handleSubmit = (e: any) => {
     if (e.which === 13) {

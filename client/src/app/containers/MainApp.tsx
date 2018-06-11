@@ -15,9 +15,6 @@ class MainApp extends React.Component<any, any> {
     let footer;
 
     const activeFiltersCount = activeFilters.length;
-    // const activeFiltersCount = filters.filter((filter: any) => {
-    //   return filter.active;
-    // }).length;
 
     return (
       <div className="wrapper">
@@ -41,7 +38,6 @@ class MainApp extends React.Component<any, any> {
           </div>
         </section>
         <footer className="footer">Footer: Fixed height</footer>
-        {activeFiltersCount}
       </div>
     );
   }

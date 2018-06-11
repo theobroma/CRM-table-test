@@ -11,18 +11,14 @@ export class TableRow extends React.Component<any, any> {
 
   handleDoubleClick = (id: any) => {
     this.props.toggleRowEditing(id);
-    //this.setState({ editing: true });
-    //console.log('HandleDbClick from TableRow');
   };
 
   handleSaveRow = () => {
-    console.log('Handle save from TableRow');
     this.props.editRow(this.state.data);
+    //sending empty line to stop editing
+    this.props.toggleRowEditing('');
   };
   handleChangeRow(cellType: any, text: any) {
-    console.log('handleChange from TableRow');
-    console.log(cellType);
-    console.log(text);
     if (cellType == 'spentSum') {
       let data = { ...this.state.data };
       data.spentSum = text;
@@ -35,10 +31,7 @@ export class TableRow extends React.Component<any, any> {
     }
   }
 
-  handleOnBlur = () => {
-    //this.setState({ editing: false });
-    //console.log('handleOnBlur from TableRow');
-  };
+  handleOnBlur = () => {};
   //FIXME: enhance DRY
   render() {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;

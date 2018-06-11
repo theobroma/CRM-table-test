@@ -27,7 +27,6 @@ export class TableRowItem extends React.Component<any, any> {
   handleSave = () => {
     this.props.handleSave();
     this.setState({ editing: false });
-    console.log('Handle save from RowItem');
   };
 
   handleChange = (text: any) => {

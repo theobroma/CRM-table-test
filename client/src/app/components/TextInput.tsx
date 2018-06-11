@@ -5,9 +5,8 @@ import * as classNames from 'classnames';
 class TextInput extends React.Component<any, any> {
   static defaultProps = {
     text: '',
-    placeholder: 'What needs to be done?',
-    editing: false,
-    newTodo: true
+    placeholder: 'cell input',
+    editing: false
   };
 
   state = {
@@ -48,12 +47,8 @@ class TextInput extends React.Component<any, any> {
 
   handleSubmit = (e: any) => {
     const text = e.target.value.trim();
-    //console.log(text);
     if (e.which === 13) {
-      this.props.onSave(this.props.client._id, this.props.cellType, text);
-      // if (this.props.newTodo) {
-      //   this.setState({ text: '' });
-      // }
+      this.props.onSave(this.props.cellType, text);
     }
   };
 
@@ -62,26 +57,17 @@ class TextInput extends React.Component<any, any> {
     this.setState({ text: e.target.value });
   }
 
-  handleBlur(e: any) {
-    //console.log('handleBlur');
-    // if (!this.props.newTodo) {
-    //   this.props.onSave(e.target.value);
-    // }
-  }
-
   render() {
     return (
       <React.Fragment>
         <input
           className={classNames({
-            edit: this.props.editing,
-            'new-todo': this.props.newTodo
+            edit: this.props.editing
           })}
           type="text"
           placeholder={this.props.placeholder}
           autoFocus={true}
           value={this.state.text}
-          onBlur={this.handleBlur.bind(this)}
           onChange={this.handleChange.bind(this)}
           onKeyDown={this.handleSubmit.bind(this)}
         />

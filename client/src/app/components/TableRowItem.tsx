@@ -24,10 +24,11 @@ export class TableRowItem extends React.Component<any, any> {
     }
   }
 
-  handleSave = (id: any, cellType: string, text: any) => {
+  handleSave = (cellType: string, text: any) => {
     //this.props.editCell(id, cellType, text);
-    this.props.handleSave(id, cellType, text);
+    this.props.handleSave(cellType, text);
     this.setState({ editing: false });
+    console.log('Handle save from RowItem');
   };
   // handleDoubleClick = (id: any) => {
   //   this.props.handleDoubleClick(id);
@@ -51,7 +52,7 @@ export class TableRowItem extends React.Component<any, any> {
         <div className="Table-row-item">
           <TextInput
             text={this.props.text}
-            onSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
+            onSave={(cellType: any, text: any) => this.handleSave(cellType, text)}
             {...this.props}
           />
         </div>

@@ -3,10 +3,11 @@ import * as cx from 'classnames';
 import TableRowItem from './TableRowItem';
 
 export class TableRow extends React.Component<any, any> {
-  // state = {
-  //   //editing: false
-  //   editing: this.props.rowEditing
-  // };
+  state = {
+    //editing: false
+    //editing: this.props.rowEditing
+    data: this.props.client
+  };
 
   handleDoubleClick = (id: any) => {
     this.props.toggleRowEditing(id);
@@ -15,8 +16,19 @@ export class TableRow extends React.Component<any, any> {
   };
 
   handleSave = (id: any, cellType: any, text: any) => {
-    this.props.editCell(id, cellType, text);
+    console.log('Handle save from TableRow');
+    //this.props.editCell(id, cellType, text);
     //this.setState({ editing: false });
+    if (cellType == 'spentSum') {
+      return { ...this.state.data, spentSum: text };
+    }
+    if (cellType == 'discountProcent') {
+      return { ...this.state.data, discountProcent: text };
+    } else {
+      return this.state.data;
+    }
+    console.log(this.state.data);
+    //this.props.editRow(id, data);
   };
 
   handleOnBlur = () => {

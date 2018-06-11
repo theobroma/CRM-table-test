@@ -31,9 +31,13 @@ export class TableRow extends React.Component<any, any> {
     }
   }
 
-  //FIXME: enhance DRY
   render() {
     const { _id, name, discountType, spentSum, discountProcent, gender } = this.props.client;
+    const someProps = {
+      isRowEditing: this.props.isRowEditing,
+      handleSave: () => this.handleSaveRow(),
+      handleChangeRow: (cellType: any, text: any) => this.handleChangeRow(cellType, text)
+    };
     return (
       <div
         className={cx({
@@ -42,38 +46,11 @@ export class TableRow extends React.Component<any, any> {
         })}
         onDoubleClick={() => this.handleDoubleClick(_id)}
       >
-        <TableRowItem
-          text={name}
-          cellType="name"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          {...this.props}
-        />
-        <TableRowItem
-          text={discountType}
-          cellType="discountType"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          {...this.props}
-        />
-        <TableRowItem
-          text={spentSum}
-          cellType="spentSum"
-          handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
-          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          {...this.props}
-        />
-        <TableRowItem
-          text={22.33}
-          cellType="discountSum"
-          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          {...this.props}
-        />
-        <TableRowItem
-          text={discountProcent}
-          cellType="discountProcent"
-          handleChangeRow={(cellType: any, text: any) => this.handleChangeRow(cellType, text)}
-          handleSave={(id: any, cellType: any, text: any) => this.handleSaveRow()}
-          {...this.props}
-        />
+        <TableRowItem text={name} cellType="name" {...someProps} />
+        <TableRowItem text={discountType} cellType="discountType" {...someProps} />
+        <TableRowItem text={spentSum} cellType="spentSum" {...someProps} />
+        <TableRowItem text={22.33} cellType="discountSum" {...someProps} />
+        <TableRowItem text={discountProcent} cellType="discountProcent" {...someProps} />
       </div>
     );
   }

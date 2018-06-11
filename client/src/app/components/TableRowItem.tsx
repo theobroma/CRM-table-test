@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as cx from 'classnames';
 //mock data if needed
-import TodoTextInput from './TodoTextInput';
+import TextInput from './TextInput';
 
 export class TableRowItem extends React.Component<any, any> {
   //current
@@ -49,7 +49,7 @@ export class TableRowItem extends React.Component<any, any> {
     if (this.state.editing) {
       element = (
         <div className="Table-row-item">
-          <TodoTextInput
+          <TextInput
             text={this.props.text}
             onSave={(id: any, cellType: any, text: any) => this.handleSave(id, cellType, text)}
             {...this.props}

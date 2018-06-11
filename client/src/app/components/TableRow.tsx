@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as cx from 'classnames';
-import TodoTextInput from './TodoTextInput';
 import TableRowItem from './TableRowItem';
 
 export class TableRow extends React.Component<any, any> {

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import TodoTextInput from './TodoTextInput';
 import FilterLink from './FilterLink';
 
 export default class Header extends React.Component<any, any> {

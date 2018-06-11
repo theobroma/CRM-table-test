@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames';
 
 //class TodoTextInput extends React.Component<TodoTextInputProps, TodoTextInputState>
-class TodoTextInput extends React.Component<any, any> {
+class TextInput extends React.Component<any, any> {
   static defaultProps = {
     text: '',
     placeholder: 'What needs to be done?',
@@ -91,4 +91,4 @@ class TodoTextInput extends React.Component<any, any> {
   }
 }
 
-export default TodoTextInput;
+export default TextInput;

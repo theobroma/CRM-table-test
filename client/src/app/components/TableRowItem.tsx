@@ -35,7 +35,7 @@ export class TableRowItem extends React.Component<any, any> {
 
   render() {
     return this.state.editing ? (
-      <div className="Table-row-item">
+      <div className={cx('Table-row-item', this.props.className)}>
         <TextInput
           text={this.props.text}
           onSave={() => this.handleSave()}
@@ -43,7 +43,7 @@ export class TableRowItem extends React.Component<any, any> {
         />
       </div>
     ) : (
-      <div className="Table-row-item">{this.props.text}</div>
+      <div className={cx('Table-row-item', this.props.className)}>{this.props.text}</div>
     );
   }
 }

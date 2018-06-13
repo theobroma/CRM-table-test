@@ -1,13 +1,20 @@
-import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as React from 'react';
-import * as cx from 'classnames';
 
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 //import getActiveFilters from '../reducer';
 import { toggleFilter } from '../actions';
-interface AppProps {}
+
+// .container
+// .left-sidebar
+//   | left-sidebar
+// .header
+//   | Header
+// .main-content
+//   include components/_table
+// .right-sidebar
+//   | right-sidebar
 
 class MainApp extends React.Component<any, any> {
   render() {
@@ -17,27 +24,21 @@ class MainApp extends React.Component<any, any> {
     const activeFiltersCount = activeFilters.length;
 
     return (
-      <div className="wrapper">
-        {/* <header className="header">Header: Fixed height</header> */}
+      <div className="container">
+        <aside className="left-sidebar" />
         <Header
           toggleFilter={this.props.toggleFilter}
           filters={this.props.filters}
           activeFiltersCount={activeFiltersCount}
         />
-        <section className="content">
-          <div className="columns">
-            <main className="main">
-              <MainSection
-                clients={clients}
-                filters={this.props.filters}
-                editCell={this.props.editCell}
-              />
-            </main>
-            <aside className="sidebar-first">Sidebar first: Fixed width</aside>
-            <aside className="sidebar-second">Sidebar second: Fixed width</aside>
-          </div>
-        </section>
-        <footer className="footer">Footer: Fixed height</footer>
+        <main className="main-content">
+          <MainSection
+            clients={clients}
+            filters={this.props.filters}
+            editCell={this.props.editCell}
+          />
+        </main>
+        <aside className="right-sidebar" />
       </div>
     );
   }

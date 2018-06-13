@@ -1,4 +1,16 @@
 .header {
+  display: flex;
+  flex-flow: row;
+  background-color: #f3f3f3;
+}
+.header-title {
+  width: 180px;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #343434;
+  border-right: solid 1px rgba(151, 151, 151, 0.12);
 }
 .button {
   align-items: center;

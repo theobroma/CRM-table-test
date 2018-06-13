@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  //grid-gap: 5px;
+  grid-template-columns: 240px 1fr 307px;
+  grid-template-rows: 70px auto;
+  grid-template-areas: 'ls h h' 'ls mc rs';
+}
+.left-sidebar {
+  grid-area: ls;
+  background-color: $c-brown;
+  min-height: 100vh;
+}
+.header {
+  grid-area: h;
+}
+.main-content {
+  background-color: $c-grey-light;
+  grid-area: mc;
+}
+.right-sidebar {
+  background-color: $c-grey-light;
+  grid-area: rs;
+}

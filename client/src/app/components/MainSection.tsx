@@ -31,18 +31,41 @@ export default class MainSection extends React.Component<any, any> {
   render() {
     const { clients } = this.props;
     return (
-      <section className="sheet-container">
-        <div className="Table">
-          <div className="Table-row Table-header">
-            <div className="Table-row-item">Клиент</div>
-            <div className="Table-row-item">Скидка Тип</div>
-            <div className="Table-row-item">Потрачено</div>
-            <div className="Table-row-item">СК.Сумма</div>
-            <div className="Table-row-item">Скидка Процент</div>
+      <div className="Table">
+        <div className="Table-row Table-header">
+          <div className="Table-row-item u-Flex-grow2">
+            <div className="Table-column">
+              <div className="Table-column-name">Клиент</div>
+              <div className="Table-column-subname">Имя</div>
+            </div>
           </div>
-          <div className="Table-body">{this.renderClients()}</div>
+          <div className="Table-row-item">
+            <div className="Table-column">
+              <div className="Table-column-name">Скидка</div>
+              <div className="Table-column-subname">Тип</div>
+            </div>
+          </div>
+          <div className="Table-row-item">
+            <div className="Table-column">
+              <div className="Table-column-name">Потрачено</div>
+              <div className="Table-column-subname">Грн</div>
+            </div>
+          </div>
+          <div className="Table-row-item">
+            <div className="Table-column">
+              <div className="Table-column-name">СК.Сумма</div>
+              <div className="Table-column-subname">Грн</div>
+            </div>
+          </div>
+          <div className="Table-row-item">
+            <div className="Table-column">
+              <div className="Table-column-name">Скидка</div>
+              <div className="Table-column-subname">Процент</div>
+            </div>
+          </div>
         </div>
-      </section>
+        <div className="Table-body">{this.renderClients()}</div>
+      </div>
     );
   }
 }

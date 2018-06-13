@@ -38,6 +38,7 @@ export class TableRow extends React.Component<any, any> {
       handleSave: () => this.handleSaveRow(),
       handleChangeRow: (cellType: any, text: any) => this.handleChangeRow(cellType, text)
     };
+
     return (
       <div
         className={cx({
@@ -46,11 +47,36 @@ export class TableRow extends React.Component<any, any> {
         })}
         onDoubleClick={() => this.handleDoubleClick(_id)}
       >
-        <TableRowItem text={name} cellType="name" {...someProps} />
-        <TableRowItem text={discountType} cellType="discountType" {...someProps} />
-        <TableRowItem text={spentSum} cellType="spentSum" {...someProps} />
-        <TableRowItem text={22.33} cellType="discountSum" {...someProps} />
-        <TableRowItem text={discountProcent} cellType="discountProcent" {...someProps} />
+        <TableRowItem
+          className="u-Flex-grow2 Table-item-name"
+          text={name}
+          cellType="name"
+          {...someProps}
+        />
+        <TableRowItem
+          className="Table-item-discountType"
+          text={discountType}
+          cellType="discountType"
+          {...someProps}
+        />
+        <TableRowItem
+          className="Table-item-spentSum"
+          text={spentSum}
+          cellType="spentSum"
+          {...someProps}
+        />
+        <TableRowItem
+          className="Table-item-discountSum"
+          text={22.33}
+          cellType="discountSum"
+          {...someProps}
+        />
+        <TableRowItem
+          className="Table-item-discountProcent"
+          text={discountProcent}
+          cellType="discountProcent"
+          {...someProps}
+        />
       </div>
     );
   }

@@ -13,7 +13,7 @@ export default class Header extends React.Component<any, any> {
     };
     return (
       <header className="header">
-        <div className="sidebar-first-pad">1231</div>
+        <div className="header-title">Карточки</div>
         <div className="buttons">
           <ul className="filters">
             <FilterLink type={'GOLD'} {...someProps}>
@@ -30,7 +30,6 @@ export default class Header extends React.Component<any, any> {
             </FilterLink>
           </ul>
         </div>
-        <div className="header-profile">admin</div>
       </header>
     );
   }

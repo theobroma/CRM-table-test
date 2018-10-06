@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run start:dev",
+    "devwrite": "npm run clean && npm run start:devwrite",
     "start:dev": "webpack-dev-server --history-api-fallback --inline --progress --colors --port 3000 --config webpack.dev.js",
     "start:devwrite": "webpack-dev-server --history-api-fallback --inline --progress --colors --port 3000 --config webpack.dev.write.js",
     "build:stats": "webpack --env production --profile --progress --json > stats.json",
@@ -14,7 +15,7 @@
   "dependencies": {
     "@types/classnames": "^2.2.6",
     "@types/node": "^10.11.4",
-    "@types/react": "^16.4.14",
+    "@types/react": "^16.4.15",
     "@types/react-dom": "^16.0.8",
     "@types/react-redux": "^6.0.9",
     "@types/react-router-dom": "^4.3.1",
@@ -55,6 +56,7 @@
     "styled-components": "^3.4.9",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.20.2",
+    "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4",

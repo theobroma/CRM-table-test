@@ -1,10 +1,10 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {createLogger} from 'redux-logger';
-import * as lodash from 'lodash';
+import * as _ from 'lodash';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {loadState, saveState} from './helpers/localStorage';
-import rootReducer from './reducer';
+import {rootReducer} from './store';
 //mock data
 import MOCK_DATA from './helpers/mockclients';
 
@@ -40,7 +40,7 @@ const configureStore = () => {
   );
 
   store.subscribe(
-    lodash.throttle(() => {
+    _.throttle(() => {
       console.log('saved to localStorage');
       saveState(store.getState());
     }, 1000)

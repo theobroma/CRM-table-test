@@ -19,7 +19,7 @@ config.optimization = {
 config.module = {
   rules: [
     {
-      test: /\.(sass|scss)$/,
+      test: /\.(sass|scss|css)$/,
       use: ExtractTextPlugin.extract ({
         fallback: 'style-loader',
         use: [

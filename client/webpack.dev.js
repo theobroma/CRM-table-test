@@ -1,7 +1,7 @@
-const path = require('path');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
-const common = require('./webpack.common.js');
+const path = require ('path');
+const webpack = require ('webpack');
+const merge = require ('webpack-merge');
+const common = require ('./webpack.common.js');
 
 const config = {};
 
@@ -13,22 +13,22 @@ config.devtool = 'cheap-module-eval-source-map';
 config.module = {
   rules: [
     {
-      test: /\.(sass|scss)$/,
-      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
-    }
-  ]
+      test: /\.(sass|scss|css)$/,
+      use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+    },
+  ],
 };
 
 config.plugins = [
   // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
   // inside your code for any environment checks; UglifyJS will automatically
   // drop any unreachable code.
-  new webpack.DefinePlugin({
+  new webpack.DefinePlugin ({
     'process.env': {
-      NODE_ENV: JSON.stringify('development')
-    }
+      NODE_ENV: JSON.stringify ('development'),
+    },
   }),
-  new webpack.HotModuleReplacementPlugin()
+  new webpack.HotModuleReplacementPlugin (),
 ];
 
 config.devServer = {
@@ -40,7 +40,7 @@ config.devServer = {
   hot: true,
   // Don't refresh if hot loading fails. Good while
   // implementing the client interface.
-  hotOnly: true
+  hotOnly: true,
 };
 
-module.exports = merge(common, config);
+module.exports = merge (common, config);

@@ -1,7 +1,7 @@
 import {combineReducers, Dispatch, Reducer} from 'redux';
 
 import clientsReducer from './clients/reducer';
-import filtersReducer from './rowEditing/reducer';
+import filtersReducer from './filters/reducer';
 import rowEditingReducer from './rowEditing/reducer';
 
 export const rootReducer: any = combineReducers({

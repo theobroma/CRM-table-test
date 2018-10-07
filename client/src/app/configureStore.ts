@@ -12,10 +12,10 @@ const configureStore = () => {
   const persistedState = loadState();
 
   let totalInitialState: any = {
-    users: {
+    clients: {
       data: MOCK_DATA,
       pending: false,
-      errorMessage: '',
+      error: null,
     },
   };
   // if persistedState is not empty then assign parsed persistedState to initState

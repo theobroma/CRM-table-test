@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import * as React from 'react';
 
 import Header from '../components/Header';
 import MainSection from '../components/MainSection';
 //import getActiveFilters from '../reducer';
-import { toggleFilter } from '../actions';
+import {toggleFilter} from '../store/filters/actions';
 
 // .container
 // .left-sidebar
@@ -18,7 +18,7 @@ import { toggleFilter } from '../actions';
 
 class MainApp extends React.Component<any, any> {
   render() {
-    const { clients, filters, activeFilters } = this.props;
+    const {clients, filters, activeFilters} = this.props;
     let footer;
 
     const activeFiltersCount = activeFilters.length;
@@ -54,12 +54,12 @@ const mapStateToProps = (state: any, props: any) => {
   return {
     clients: state.clients.data,
     filters: state.filters.data,
-    activeFilters: getActiveFiltersCount(state, props)
+    activeFilters: getActiveFiltersCount(state, props),
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleFilter: (filter: string) => dispatch(toggleFilter(filter))
+  toggleFilter: (filter: string) => dispatch(toggleFilter(filter)),
 });
 
 export default connect(

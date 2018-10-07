@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import TableRow from '../components/TableRow';
-import { toggleRowEditing, editRow } from '../actions';
+import {toggleRowEditing, editRow} from '../store/rowEditing/actions';
 
 function isRowEditing(state: any, props: any) {
   return state.rowEditing.clientID == props.client._id;
@@ -8,13 +8,13 @@ function isRowEditing(state: any, props: any) {
 
 const mapStateToProps = (state: any, props: any) => {
   return {
-    isRowEditing: isRowEditing(state, props)
+    isRowEditing: isRowEditing(state, props),
   };
 };
 
 const mapDispatchToProps = (dispatch: any) => ({
   toggleRowEditing: (id: string) => dispatch(toggleRowEditing(id)),
-  editRow: (data: any) => dispatch(editRow(data))
+  editRow: (data: any) => dispatch(editRow(data)),
 });
 
 export default connect(

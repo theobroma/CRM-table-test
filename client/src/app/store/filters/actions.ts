@@ -1,29 +1,12 @@
 import axios from 'axios';
+import {ActionCreator} from 'redux';
+import {FiltersInfo, ToggleFilterAction} from './types';
 
-export const FETCH_CLIENTS_REQUEST = 'FETCH_CLIENTS';
-export const FETCH_CLIENTS_FULFILLED = 'FETCH_CLIENTS_FULFILLED';
-export const FETCH_CLIENTS_REJECTED = ' FETCH_CLIENTS_REJECTED';
-
-export const TOGGLE_FILTER = 'TOGGLE_FILTER';
-export const EDIT_ROW_REQUEST = 'EDIT_ROW_REQUEST';
-
-export const TOGGLE_EDITING = 'TOGGLE_EDITING';
+export const TOGGLE_FILTER = '@@filters/TOGGLE_FILTER';
 
 export const toggleFilter = (filter: any) => {
   return {
-    type: 'TOGGLE_FILTER',
+    type: TOGGLE_FILTER,
     filter,
-  };
-};
-
-export const editRow = (data: any) => {
-  //console.log(text);
-  return {type: EDIT_ROW_REQUEST, data: data};
-};
-
-export const toggleRowEditing = (id: any) => {
-  return {
-    type: 'TOGGLE_EDITING',
-    id,
   };
 };
